@@ -6,7 +6,7 @@
 /*   By: matenda <matenda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 13:17:10 by matenda           #+#    #+#             */
-/*   Updated: 2025/01/11 15:54:06 by matenda          ###   ########.fr       */
+/*   Updated: 2025/01/11 16:39:14 by matenda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,25 @@ static bool	is_spare(int frame_index)
 	return ((g_rolls[frame_index] + g_rolls[frame_index + 1] == 10));
 }
 
+static bool	is_strike(int frame_index)
+{
+	return (g_rolls[frame_index] == 10);
+}
+static int	strike_score(int frame_index)
+{
+	return (10 + g_rolls[frame_index + 1] + g_rolls[frame_index + 2]);
+}
+
+static int	spare_score(int frame_index)
+{
+	return (10 + g_rolls[frame_index + 2]);
+}
+
+static int	normal_score(int frame_index)
+{
+	return (g_rolls[frame_index] + g_rolls[frame_index + 1]);
+}
+
 int	bowling_game_score(void)
 {
 	int	score;
@@ -48,14 +67,19 @@ int	bowling_game_score(void)
 	frame = -1;
 	while (++frame < 10)
 	{
-		if (is_spare(frame_index))
+		if (is_strike(frame_index))
 		{
-			score += 10 + g_rolls[frame + 2];
+			score += strike_score(frame_index);
+			frame_index += 1;
+		}
+		else if (is_spare(frame_index))
+		{
+			score += spare_score(frame_index);
 			frame_index += 2;
 		}
 		else
 		{
-			score += g_rolls[frame_index] + g_rolls[frame_index + 1];
+			score += normal_score(frame_index);
 			frame_index += 2;
 		}
 	}
