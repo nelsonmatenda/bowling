@@ -6,26 +6,24 @@
 /*   By: matenda <matenda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 13:17:10 by matenda           #+#    #+#             */
-/*   Updated: 2025/01/11 13:36:04 by matenda          ###   ########.fr       */
+/*   Updated: 2025/01/11 14:00:34 by matenda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./bowling_game.h"
 
-static int	score;
+static int	g_score;
 
 void	bowling_game_init(void)
 {
-	score = 0;
+	g_score = 0;
 }
 
 void	bowling_game_roll(int pins)
 {
-
 }
 
-int bowling_game_score(void)
+int	bowling_game_score(void)
 {
-	return (score);
+	return (g_score);
 }
-
