@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bowling_game_test.c                                :+:      :+:    :+:   */
+/*   bowling_game.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matenda <matenda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 12:50:40 by matenda           #+#    #+#             */
-/*   Updated: 2025/01/11 13:39:21 by matenda          ###   ########.fr       */
+/*   Created: 2025/01/11 13:13:30 by matenda           #+#    #+#             */
+/*   Updated: 2025/01/11 13:59:26 by matenda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <assert.h>
-#include <stdbool.h>
-#include "./bowling_game.h"
+#ifndef BOWLING_GAME_H
+# define BOWLING_GAME_H
 
-static void	test_gutter_game(void)
-{
-	int	i;
+void	bowling_game_init(void);
+void	bowling_game_roll(int pins);
+int		bowling_game_score(void);
 
-	bowling_game_init();
-	i = -1;
-	while (++i < 20)
-		bowling_game_roll(0);
-	assert(bowling_game_score() == 0 \
-			&& "test_gutter_game()");
-}
-
-int	main(void)
-{
-	test_gutter_game();
-}
+#endif
