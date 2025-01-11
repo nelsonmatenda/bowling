@@ -29,3 +29,22 @@ jobs:
           if grep -q "Error" norminette_report.txt; then
             exit 1
           fi
+  unit_test:
+    name: run unit test
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Configurando ambiente
+        run: |
+          sudo apt update
+          sudo apt install -y gcc make
+
+      - name: Run Unit test
+        run: |
+          make run_test | tee unit_report.txt
+          if grep -q "Error" unit_report.txt; then
+            exit 1
+          fi
+
