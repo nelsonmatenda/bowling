@@ -6,7 +6,7 @@
 /*   By: matenda <matenda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 12:50:40 by matenda           #+#    #+#             */
-/*   Updated: 2025/01/11 15:59:27 by matenda          ###   ########.fr       */
+/*   Updated: 2025/01/11 16:49:45 by matenda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,19 @@ static void	test_one_strike(void)
 			&& "test_one_strike()");
 }
 
+static void	test_perfect_game(void)
+{
+	bowling_game_init();
+	roll_many(12, 10);
+	assert(bowling_game_score() == 300 \
+			&& "test_perfect_game()");
+}
+
 int	main(void)
 {
 	test_gutter_game();
 	test_all_ones();
 	test_one_spare();
 	test_one_strike();
+	test_perfect_game();
 }
