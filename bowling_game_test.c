@@ -6,7 +6,7 @@
 /*   By: matenda <matenda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 12:50:40 by matenda           #+#    #+#             */
-/*   Updated: 2025/01/11 17:11:37 by matenda          ###   ########.fr       */
+/*   Updated: 2025/01/11 18:21:00 by matenda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ int	main(void)
 	test_one_spare();
 	test_one_strike();
 	test_perfect_game();
+	return (0);
 }
