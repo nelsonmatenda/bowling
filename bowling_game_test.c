@@ -6,30 +6,11 @@
 /*   By: matenda <matenda@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 12:50:40 by matenda           #+#    #+#             */
-/*   Updated: 2025/01/11 16:49:45 by matenda          ###   ########.fr       */
+/*   Updated: 2025/01/11 17:11:37 by matenda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <assert.h>
-#include <stdbool.h>
-#include "./bowling_game.h"
-
-static void	roll_many(int n, int pins)
-{
-	int	i;
-
-	i = -1;
-	while (++i < n)
-		bowling_game_roll(pins);
-}
-
-static void	test_gutter_game(void)
-{
-	bowling_game_init();
-	roll_many(20, 0);
-	assert(bowling_game_score() == 0 \
-			&& "test_gutter_game()");
-}
+#include "bowling_game_test.h"
 
 static void	test_all_ones(void)
 {
